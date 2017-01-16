@@ -4,8 +4,8 @@
 
 using namespace std;
 
-int cache[1111];
-int wine[111];
+int cache[111111];
+int wine[111111];
 
 int main() {
 	int testcase;
