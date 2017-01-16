@@ -1,7 +1,9 @@
-﻿  9461.cpp
-c:\users\soongu\documents\visual studio 2015\projects\baekjoon\9461.cpp(9): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+﻿  9465.cpp
+c:\users\soongu\documents\visual studio 2015\projects\baekjoon\9465.cpp(11): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
-c:\users\soongu\documents\visual studio 2015\projects\baekjoon\9461.cpp(13): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\soongu\documents\visual studio 2015\projects\baekjoon\9465.cpp(15): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\soongu\documents\visual studio 2015\projects\baekjoon\9465.cpp(19): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
   acm.vcxproj -> C:\Users\Soongu\Documents\Visual Studio 2015\Projects\baekjoon\Debug\acm.exe
   acm.vcxproj -> C:\Users\Soongu\Documents\Visual Studio 2015\Projects\baekjoon\Debug\acm.pdb (Full PDB)
