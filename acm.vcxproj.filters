@@ -285,5 +285,8 @@
     <ClCompile Include="1963.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="11724.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
