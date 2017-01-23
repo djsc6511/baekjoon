@@ -76,7 +76,7 @@ int main() {
 				result = map[curY][curX];
 				break;
 			}
-			else if (abs(curDir - edir) == 1 || abs(curDir - edir) == 3) {
+			else if (abs(curDir - edir) == 2 || abs(curDir - edir) == 3) {
 				result = map[curY][curX] + 1;
 				break;
 			}
@@ -86,7 +86,6 @@ int main() {
 			}
 			
 		}
-
 
 		q.pop();
 
