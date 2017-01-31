@@ -9,13 +9,14 @@ int map[111][111];
 bool isVisited[111][111];
 int M, N;
 
-int dx[4] = { 1, -1, 0, 0 };
-int dy[4] = { 0, 0, -1, 1 };
+int dx[5] = { 0, 1, -1, 0, 0 };
+int dy[5] = { 0, 0, 0, 1, -1 };
 
 typedef struct {
 	int x;
 	int y;
 	int dir;
+	int dis;
 	int moveCount;
 } Point;
 
@@ -32,6 +33,12 @@ int abs(int a) {
 	if (a >= 0) return a;
 	else return -a;
 }
+
+struct cmp {
+	bool operator()(Point &t, Point &u) {
+		return t.dis > u.dis;
+	}
+};
 
 int main() {
 	scanf("%d %d", &M, &N);
@@ -55,46 +62,59 @@ int main() {
 	scanf("%d %d %d", &ey, &ex, &edir);
 
 	Point p;
-	queue<Point> q;
+	priority_queue<Point, vector<Point>, cmp> q;
 	p.x = fx;
 	p.y = fy;
 	p.dir = fdir;
+	p.dis = 0;
 	p.moveCount = 0;
 	q.push(p);
 
 	isVisited[fy][fx] = true;
-
-	int result = 0;
+	
+	int result = INF;
 	while (!q.empty()) {
-		int curX = q.front().x;
-		int curY = q.front().y;
-		int curDir = q.front().dir;
-		int curMoveCnt = q.front().moveCount;
+		int curX = q.top().x;
+		int curY = q.top().y;
+		int curDir = q.top().dir;
+		int curDis = q.top().dis;
+		int curMoveCnt = q.top().moveCount;
+		/*
+		for (int i = 1; i <= M; i++) {
+			for (int j = 1; j <= N; j++) {
+				if (map[i][j] == INF) {
+					printf("# ");
+				}
+				else {
+					printf("%d ", map[i][j]);
+				}
 
+			}
+			printf("\n");
+		}
+		printf("\n");
+		*/
 		if (curX == ex && curY == ey) {
 			if (curDir - edir == 0) {
 				result = map[curY][curX];
-				break;
 			}
-			else if (abs(curDir - edir) == 2 || abs(curDir - edir) == 3) {
-				result = map[curY][curX] + 1;
-				break;
+			else if ((curDir == 1 && edir == 2) || (curDir == 3 && edir == 4)
+				|| (curDir == 2 && edir == 1) || (curDir == 4 && edir == 3)) {
+				result = map[curY][curX] + 2;
 			}
 			else {
-				result = map[curY][curX] + 2;
-				break;
+				result = map[curY][curX] + 1;
 			}
-			
 		}
 
 		q.pop();
 
-		for (int i = 0; i < 4; i++) {
+		for (int i = 1; i <= 4; i++) {
 			int nextX = curX + dx[i];
 			int nextY = curY + dy[i];
 
 			if (isMovePossible(nextX, nextY) && map[nextY][nextX] == 0 && !isVisited[nextY][nextX]) {
-				if (curDir == i + 1) {
+				if (curDir == i) {
 					isVisited[nextY][nextX] = true;
 					if (curMoveCnt == 0) {
 						curMoveCnt += 1;
@@ -102,7 +122,7 @@ int main() {
 					}
 					else {
 						curMoveCnt += 1;
-						map[nextY][nextX] = map[curY][curX];
+						map[nextY][nextX] += map[curY][curX];
 						if (curMoveCnt == 3) {
 							curMoveCnt = 0;
 						}
@@ -111,31 +131,39 @@ int main() {
 					Point np;
 					np.x = nextX;
 					np.y = nextY;
-					np.dir = i + 1;
+					np.dir = i;
+					np.dis = map[nextY][nextX];
 					np.moveCount = curMoveCnt;
 					q.push(np);
 
 				}
 				else {
-					if (curDir - i == 1) {
+					if ((curDir ==1 && i ==2) || (curDir == 3 && i ==4) 
+					|| (curDir == 2 && i == 1) || (curDir == 4 && i == 3)){
 						isVisited[nextY][nextX] = true;
+						curDis += 3;
 						map[nextY][nextX] += map[curY][curX] + 3;
 
 						Point np;
 						np.x = nextX;
 						np.y = nextY;
-						np.dir = i + 1;
+						np.dir = i;
+						np.dis = map[nextY][nextX];
+						np.moveCount = 1;
 
 						q.push(np);
 					}
 					else {
 						isVisited[nextY][nextX] = true;
+						curDis += 2;
 						map[nextY][nextX] += map[curY][curX] + 2;
 
 						Point np;
 						np.x = nextX;
 						np.y = nextY;
-						np.dir = i + 1;
+						np.dir = i;
+						np.dis = map[nextY][nextX];
+						np.moveCount = 1;
 
 						q.push(np);
 					}
