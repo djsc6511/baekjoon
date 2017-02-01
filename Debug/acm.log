@@ -1,3 +1,5 @@
-﻿  10430.cpp
+﻿  9613.cpp
+c:\users\soongu\documents\visual studio 2015\projects\baekjoon\9613.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\users\soongu\documents\visual studio 2015\projects\baekjoon\9613.cpp(28): warning C4018: '<': signed/unsigned mismatch
   acm.vcxproj -> C:\Users\Soongu\Documents\Visual Studio 2015\Projects\baekjoon\Debug\acm.exe
   acm.vcxproj -> C:\Users\Soongu\Documents\Visual Studio 2015\Projects\baekjoon\Debug\acm.pdb (Full PDB)

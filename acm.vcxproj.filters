@@ -303,5 +303,8 @@
     <ClCompile Include="10430.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="9613.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
