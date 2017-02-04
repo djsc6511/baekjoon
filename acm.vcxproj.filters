@@ -318,5 +318,11 @@
     <ClCompile Include="1978.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="1929.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="j1382.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

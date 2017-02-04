@@ -15,19 +15,20 @@ void eratos() {
 	memset(is_Prime, true, sizeof(is_Prime));
 
 	is_Prime[0] = is_Prime[1] = false;
-	for (int i = 2; i*i < SIZE + 1; i++) {
-		if (is_Prime[i]) {
-			for (int j = i*i; j < SIZE + 1; j += i) {
+	for (int i = 2; i*i < SIZE; i++) {
+		if (is_Prime[i])
+			for (int j = i*i; j < SIZE; j += i)
 				is_Prime[j] = false;
-			}
-		}
-			
 	}
-	return;
 }
 
 int main() {
 	eratos();
+
+	for (int i = 0; i < SIZE; i++) {
+		if (is_Prime[i])
+			prime.push_back(i);
+	}
 
 	while (true) {
 		int n;
@@ -36,14 +37,11 @@ int main() {
 		int result = 0;
 		int check = 0;
 		int a, b;
-		for (int i = 0; i < SIZE; i++) {
-			if (is_Prime[i])
-				prime.push_back(i);
-		}
-		if (n == 0) break;
+		
+		if (n == 0) return 0;
 		else {
 			for (int i = 0; i < prime.size(); i++) {
-				for (int j = i; j < prime.size(); j++) {
+				for (int j = 0; i != j && j < prime.size(); j++) {
 					if (prime[i] + prime[j] == n) {
 						if (prime[j] - prime[i] > result) {
 							result = prime[j] - prime[i];
@@ -59,7 +57,7 @@ int main() {
 			cout << "Goldbach's conjecture is wrong." << endl;
 		}
 		else {
-			printf("%d = %d + %d", result, a, b);
+			printf("%d = %d + %d", n, a, b);
 		}
 		
 	}
