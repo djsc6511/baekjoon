@@ -324,5 +324,8 @@
     <ClCompile Include="j1382.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="j1024.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
