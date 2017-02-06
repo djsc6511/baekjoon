@@ -19,6 +19,8 @@ int main() {
 	int num;
 	cin >> num;
 
-	solve(num);
+	if (num == 0) printf("0");
+	else solve(num);
+
 	return 0;
 }
