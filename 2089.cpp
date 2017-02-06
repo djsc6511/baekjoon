@@ -3,12 +3,22 @@
 
 using namespace std;
 
+void solve(int n) {
+	if (n == 0) return;
+	if (n % 2 == 0) {
+		solve(-(n / 2));
+		printf("0");
+	}
+	else {
+		if (n > 0) solve(-(n / 2));
+		else solve(-(n - 1) / 2);
+		printf("1");
+	}
+}
 int main() {
-	long long num;
+	int num;
 	cin >> num;
 
-	while (num != 0) {
-
-	}
+	solve(num);
 	return 0;
 }
